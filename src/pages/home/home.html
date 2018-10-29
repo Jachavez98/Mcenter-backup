@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar color="beauty">
+    <ion-title>Principal</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="page-home" padding>
+  <ion-card>
+    <ion-card-content>
+      Bienvenido {{this.getName()}}
+    </ion-card-content>
+  </ion-card>
+  <div padding>
+    <ion-segment [(ngModel)]="Menu" color="beauty">
+      <ion-segment-button value="Inicio">
+        Inicio
+      </ion-segment-button>
+      <ion-segment-button value="Ayuda">
+        Ayuda
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div [ngSwitch]="Menu">
+    <ion-label *ngSwitchCase="'Inicio'" class="Inicio">
+      <ion-grid>
+        <ion-row col-12>
+          <ion-row col-12>
+            <ion-label>Siguientes citas:</ion-label>
+          </ion-row>
+          <ion-row col-12>
+            <ion-calendar col-12 #calendar lang="es"></ion-calendar>
+          </ion-row>
+        </ion-row>
+      </ion-grid>
+    </ion-label>
+    <ion-label *ngSwitchCase="'Ayuda'">
+      Ayuda
+    </ion-label>
+  </div>
+</ion-content>
